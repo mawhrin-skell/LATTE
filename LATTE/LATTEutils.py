@@ -22,7 +22,7 @@ import astropy.io.fits as pf
 from astropy import units as u
 from astropy.table import Table
 from astropy.coordinates import SkyCoord
-from astropy.stats import median_absolute_deviation, BoxLeastSquares
+from astropy.stats import median_absolute_deviation; from astropy.timeseries import BoxLeastSquares
 
 from scipy.ndimage import label
 from scipy.interpolate import interp1d
