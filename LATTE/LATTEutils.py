@@ -3749,7 +3749,7 @@ def download_data(indir,sectors, tic, binfac = 5, test = 'no'):
 
         # search the LC download file for the URL to download the LC from MAST for the given target star.
         # if we are looking at all of the sectors search, the file that has all of the LC URLs in it.
-        if sectors == 'all':
+        if np.any(sectors == 'all'):  # if sectors == 'all'
             for sector in sectors:
                 try:
                     this_sector_code = infile[infile.sec == int(sector)]
