@@ -25,21 +25,21 @@ warnings.filterwarnings('ignore')
 
 '''
 NOTE: a warning message currently appears when the code is exited (i.e. at the end of the code).
-This is due to an error in the current verion of matplolib with the interactive widgets but has been adressed
+This is due to an error in the current version of matplolib with the interactive widgets but has been addressed
 in future releases of matplolib (see https://github.com/matplotlib/matplotlib/issues/13660)
-The above link shows how to change the matplolib cbook __init__ file in order to make it disapear.
+The above link shows how to change the matplolib cbook __init__ file in order to make it disappear.
 
 # REQUIRES MATPLOLIB 3.2 (there is a bug in 3.1 the current stable version - as of January 2020)).
  --- pip install matplotlib==3.2.0rc1 (still in testing?)
 
 
-Overview of LATTE scipts:
+Overview of LATTE scripts:
 
-__main__.py	  : Intitialises the parameters, what TIC ID, sector, checks for downloads of the data, FFI or not?
+__main__.py	  : Initialises the parameters, what TIC ID, sector, checks for downloads of the data, FFI or not?
 
 LATTEutils.py	: All the functions needed to download data and text files, runs the interactive gui, all of the plotting and data handling.
 
-LATTE_DV.py	  : Scipt to combine all of the results from LATTEbrew in order to generate a pdf data validation report.
+LATTE_DV.py	  : Script to combine all of the results from LATTEbrew in order to generate a pdf data validation report.
 
 LATTEbrew.py	 : Calls the LATTEutils functions in turn in order to store the results and keeps track of what has been generated. Calls the LATTE_DV.py function to collate all the results.
 
@@ -69,7 +69,7 @@ if __name__ == '__main__':
 	args = ap.parse_args()
 
 	# ------------------------------------------------
-	# Check what the current path is - when the program is first downloaded the path is set to 'no/path/set/yet' and the user is automatically prompted to change'no/path/set/yet'
+	# Check what the current path is - when the program is first downloaded the path is set to 'no/path/set/yet' and the user is automatically prompted to change 'no/path/set/yet'
 	# Get the path to where the package is installed. This is where the configuration file and the images (for the DV report are stored)
 
 	syspath = str(os.path.abspath(utils.__file__))[0:-14]
@@ -79,7 +79,7 @@ if __name__ == '__main__':
 		'''
 		Yes/No command line option to verify that the user really wants to change the output/input path
 		'''
-		print ('\n \n WARNING: if you have already downloded the input files (with --new-data) then these will remain in the location set by your previous path, so you will have to redowload the data (not recommended) or move the data to the new location set by this path. \n \n ')
+		print ('\n \n WARNING: if you have already downloaded the input files (with --new-data) then these will remain in the location set by your previous path, so you will have to redownload the data (not recommended) or move the data to the new location set by this path. \n \n ')
 
 		reply = str(input('Are you sure that you want to change the path?' + '(yes/no): '))
 
@@ -95,7 +95,7 @@ if __name__ == '__main__':
 
 	'''
 	This first part of the code 1) ensures that an input and output path has been defined (and allows the user to change it if necessary)
-	The path links to where the curl scipt files are stored and to where the output files will be stores. 2) Creates the output file if it doens't
+	The path links to where the curl script files are stored and to where the output files will be stores. 2) Creates the output file if it doesn't
 	already exist, and 3) downloads the text files if run for the first time or if stated to download.
 	'''
 
@@ -143,8 +143,8 @@ if __name__ == '__main__':
 
 		# ----- REFERENCE FILES DOWNLOAD -----
 		#utils.data_files(indir)
-		utils.get_data_codes(indir) # get the codes needed to downlaod the data directly (so that we don't need the url scipts anymore)
-		utils.tp_files(indir)  # downlaod the lost of all of the tic ids in that sector - this is needed to find the nearest neighbour tic ids.
+		utils.get_data_codes(indir) # get the codes needed to download the data directly (so that we don't need the url scipts anymore)
+		utils.tp_files(indir)  # download the lost of all of the tic ids in that sector - this is needed to find the nearest neighbour tic ids.
 		utils.TOI_TCE_files(indir) # get a list of the TCEs and TOIs
 		utils.momentum_dumps_info(indir)  # note downn the momentum dumps - we need this for the FFI's only
 
@@ -261,7 +261,7 @@ if __name__ == '__main__':
 
 		# ----- REFERENCE FILES DOWNLOAD -----
 		#utils.data_files(indir)
-		utils.get_data_codes(indir) # get the codes needed to downlaod the data directly (so that we don't need the url scipts anymore)
+		utils.get_data_codes(indir) # get the codes needed to downlaod the data directly (so that we don't need the url scripts anymore)
 		utils.tp_files(indir)  # downlaod the lost of all of the tic ids in that sector - this is needed to find the nearest neighbour tic ids.
 		utils.TOI_TCE_files(indir) # get a list of the TCEs and TOIs
 		utils.momentum_dumps_info(indir)  # note downn the momentum dumps - we need this for the FFI's only
@@ -271,7 +271,7 @@ if __name__ == '__main__':
 	# ---------------------------------------------
 
 	'''
-	This section starts the interactive versio of the code:
+	This section starts the interactive version of the code:
 
 	1) asks to enter the TIC ID
 	2) identifies in which sectors the target was observed and asks the user to identify which sectors should be analysed
@@ -549,8 +549,8 @@ if __name__ == '__main__':
 
 		''' Start up LATTE interactive where the transit times can be chosen manually
 		 	this works differently for FFI data and target files as the data has a different format.
-		 	At this point the code continues in the LATTE_utils scipt.
-		 	This scipt (__main__.py) is only to set up the parameters for the target and to intitialise the code.
+		 	At this point the code continues in the LATTE_utils script.
+		 	This script (__main__.py) is only to set up the parameters for the target and to intitialise the code.
 		'''
 
 		if args.FFI == False:
@@ -601,7 +601,7 @@ if __name__ == '__main__':
 
 			# --- WHAT SECTORS WAS IT OBSERVED IN? ---
 
-			# load tess-point to identify the sectors tht it was observed in.
+			# load tess-point to identify the sectors that it was observed in.
 			# need to know whether the target actually was observed in the stated sector.
 			#sectors_all, ra, dec = utils.tess_point(indir, tic)
 
@@ -646,7 +646,7 @@ if __name__ == '__main__':
 				else:
 					sectors_in = list(sectors_in)
 
-				# Sucessfully entered sectors
+				# Successfully entered sectors
 				# check that the target was actually observed in the stated sector
 				sectors = list(set(sectors_in) & set(sectors_all))
 
@@ -667,7 +667,7 @@ if __name__ == '__main__':
 
 				if pp == False: # if the transits were identified and no period information
 
-					# extract the information of the tiems of the transit like events.
+					# extract the information of the times of the transit like events.
 					transit_list_in = (row['transits'])
 
 					transit_list = ast.literal_eval(transit_list_in)
@@ -680,7 +680,7 @@ if __name__ == '__main__':
 						transit_list = list(transit_list)
 
 
-				# if the user entered a T0 and a period, the code will calcualte the times if the transit like events and use that.
+				# if the user entered a T0 and a period, the code will calculate the times if the transit like events and use that.
 
 				else:
 					# get up to 3 markings - more than that will just be cluttered and will take too long - this can be changed later if more or less are desired.
@@ -720,7 +720,7 @@ if __name__ == '__main__':
 				save = True  # always save the files - no point running this if you're not going to save them
 				DV = True   # we'll make a DV report for all of them
 				args.noshow = True  # don't show these, just save them
-				args.auto = True # the code will automatically choose it's own apertures in this mode
+				args.auto = True # the code will automatically choose its own apertures in this mode
 
 				# sort the order of the transit list
 
