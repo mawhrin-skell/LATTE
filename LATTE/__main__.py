@@ -554,7 +554,7 @@ if __name__ == '__main__':
 		'''
 
 		if args.FFI == False:
-			utils.interact_LATTE(tic, indir, syspath, sectors_all, sectors, ra, dec, args)  # the argument of whether to shos the images or not
+			utils.interact_LATTE(tic, indir, syspath, sectors_all, sectors, ra, dec, args)  # the argument of whether to show the images or not
 		else:
 			utils.interact_LATTE_FFI(tic, indir, syspath, sectors_all, sectors, ra, dec, args)
 
@@ -564,7 +564,7 @@ if __name__ == '__main__':
 	# ---------------------------------------
 	#			RUN WITH INPUT FILE
 	# ---------------------------------------
-	#The below code is executed if the 'input target list' option has been chose - this is defined in the command line.
+	#The below code is executed if the 'input target list' option has been chosen - this is defined in the command line.
 	#The code is run with input targetlist - either with phase fold information or with transit time information.
 
 	else:
