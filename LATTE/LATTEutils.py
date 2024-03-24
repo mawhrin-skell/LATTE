@@ -7437,6 +7437,18 @@ def plot_bls(tic, indir, alltime, allflux, alltimebinned, allfluxbinned, model, 
         Plot the results from the BLS with three pannels: periodgram, best fit model to the transits, phase folded fit.
     '''
 
+    import sys
+    
+    # Get the major and minor version of Python
+    python_version_major = sys.version_info.major
+    python_version_minor = sys.version_info.minor
+
+    # Determine the correct capitalization based on Python version
+    if python_version_major == 3 and python_version_minor >= 9:
+        marker_face_color_arg = 'MarkerFaceColor'
+    else:
+        marker_face_color_arg = 'markerfacecolor'
+   
     if len(in_transit) == 1:  # conditions for the first 'round' of plotting
         # define the colours of the plot
         color1 = '#DC143C'
@@ -7474,11 +7486,11 @@ def plot_bls(tic, indir, alltime, allflux, alltimebinned, allfluxbinned, model, 
     ax = axes[1]
 
     if len(in_transit) == 1:  # for the initial run
-        ax.plot(alltime, allflux, marker =".", alpha = 0.4, color = color2, ms=2, lw = 0, MarkerFaceColor = 'none')
-        ax.plot(alltimebinned, allfluxbinned, marker ="o", alpha = 0.6, color = 'black', ms=3, lw = 0, MarkerFaceColor = 'none')
+        ax.plot(alltime, allflux, marker =".", alpha = 0.4, color = color2, ms=2, lw = 0, **{marker_face_color_arg = 'none')
+        ax.plot(alltimebinned, allfluxbinned, marker ="o", alpha = 0.6, color = 'black', ms=3, lw = 0, **{marker_face_color_arg = 'none')
     else:  # for the second run (once the first 'event' has been removed)
-        ax.plot(alltime[~in_transit_notbinned], allflux[~in_transit_notbinned], marker =".", alpha = 0.4, color = color2, ms=2, lw = 0, MarkerFaceColor = 'none')
-        ax.plot(alltimebinned[~in_transit], allfluxbinned[~in_transit], marker ="o", alpha = 0.6, color = 'black',  MarkerFaceColor = 'none', ms=3, lw = 0)
+        ax.plot(alltime[~in_transit_notbinned], allflux[~in_transit_notbinned], marker =".", alpha = 0.4, color = color2, ms=2, lw = 0, **{marker_face_color_arg = 'none')
+        ax.plot(alltimebinned[~in_transit], allfluxbinned[~in_transit], marker ="o", alpha = 0.6, color = 'black',  **{marker_face_color_arg = 'none', ms=3, lw = 0)
 
     x = np.linspace(alltimebinned.min(), alltimebinned.max(), 3*len(alltimebinned))
     f = model.model(x, period, duration, t0)
@@ -7501,12 +7513,12 @@ def plot_bls(tic, indir, alltime, allflux, alltimebinned, allfluxbinned, model, 
 
     # plot the data
     if len(in_transit) == 1:  # for the initial run
-        ax.plot(x[m], allflux[m],marker =".", alpha = 0.4, color = color2, ms=2, lw = 0, MarkerFaceColor = 'none')
-        ax.plot(x_binned[m_binned], allfluxbinned[m_binned], marker ="o", alpha = 0.6, color = 'black', ms=3, lw = 0, MarkerFaceColor = 'none')
+        ax.plot(x[m], allflux[m],marker =".", alpha = 0.4, color = color2, ms=2, lw = 0, **{marker_face_color_arg = 'none')
+        ax.plot(x_binned[m_binned], allfluxbinned[m_binned], marker ="o", alpha = 0.6, color = 'black', ms=3, lw = 0, **{marker_face_color_arg = 'none')
 
     else: # for the second run (once the first 'event' has been removed)
-        ax.plot(x[m], allflux[~in_transit_notbinned][m],marker =".", alpha = 0.4, color = color2, ms=2, lw = 0, MarkerFaceColor = 'none')
-        ax.plot(x_binned[m_binned], allfluxbinned[~in_transit][m_binned], marker ="o", alpha = 0.6, color = 'black', ms=3, lw = 0, MarkerFaceColor = 'none')
+        ax.plot(x[m], allflux[~in_transit_notbinned][m],marker =".", alpha = 0.4, color = color2, ms=2, lw = 0, **{marker_face_color_arg = 'none')
+        ax.plot(x_binned[m_binned], allfluxbinned[~in_transit][m_binned], marker ="o", alpha = 0.6, color = 'black', ms=3, lw = 0, **{marker_face_color_arg = 'none')
 
 
     x = np.linspace(-0.5, 0.5, 1000)
