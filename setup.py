@@ -34,6 +34,7 @@ setup(
     "astroplan",
     "astroquery",
     "sklearn", 
+    "scikit-learn",                    
     "scipy", 
     "tess-point", 
     "reproject > 0.7", 
