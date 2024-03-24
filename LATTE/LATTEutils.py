@@ -7574,6 +7574,18 @@ def plot_bls_FFI(tic, indir, alltime, allflux, model, results, period, duration,
         Plot the results from the BLS with three pannels: periodgram, best fit model to the transits, phase folded fit.
     '''
 
+    import sys
+
+    # Get the major and minor version of Python
+    python_version_major = sys.version_info.major
+    python_version_minor = sys.version_info.minor
+
+    # Determine the correct capitalization based on Python version
+    if python_version_major == 3 and python_version_minor >= 9:
+        marker_face_color_arg = 'MarkerFaceColor'
+    else:
+        marker_face_color_arg = 'markerfacecolor'
+        
     if len(in_transit) == 1:  # conditions for the first 'round' of plotting
 
         color1 = 'navy'
@@ -7610,9 +7622,9 @@ def plot_bls_FFI(tic, indir, alltime, allflux, model, results, period, duration,
     ax = axes[1]
 
     if len(in_transit) == 1:
-        ax.plot(alltime, allflux, marker =".", alpha = 0.9, color = color2, ms=2, lw = 0, MarkerFaceColor = 'none')
+        ax.plot(alltime, allflux, marker =".", alpha = 0.9, color = color2, ms=2, lw = 0, **{marker_face_color_arg: = 'none')
     else:
-        ax.plot(alltime, allflux, marker =".", alpha = 0.9, color = color2, ms=2, lw = 0, MarkerFaceColor = 'none')
+        ax.plot(alltime, allflux, marker =".", alpha = 0.9, color = color2, ms=2, lw = 0, **{marker_face_color_arg: = 'none')
 
     x = np.linspace(alltime.min(), alltime.max(), 3*len(alltime))
     f = model.model(x, period, duration, t0)
@@ -7630,10 +7642,10 @@ def plot_bls_FFI(tic, indir, alltime, allflux, model, results, period, duration,
     m = np.abs(x) < 0.5
 
     if len(in_transit) == 1:
-        ax.plot(x[m], allflux[m],marker = ".", alpha = 0.9, color = color2, ms=2, lw = 0, MarkerFaceColor = 'none')
+        ax.plot(x[m], allflux[m],marker = ".", alpha = 0.9, color = color2, ms=2, lw = 0, **{marker_face_color_arg: = 'none')
 
     else:
-        ax.plot(x[m], allflux[m],marker = ".", alpha = 0.9, color = color2, ms=2, lw = 0, MarkerFaceColor = 'none')
+        ax.plot(x[m], allflux[m],marker = ".", alpha = 0.9, color = color2, ms=2, lw = 0, **{marker_face_color_arg: = 'none')
 
 
     x = np.linspace(-0.5, 0.5, 1000)
