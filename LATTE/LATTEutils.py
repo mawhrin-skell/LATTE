@@ -7486,10 +7486,10 @@ def plot_bls(tic, indir, alltime, allflux, alltimebinned, allfluxbinned, model, 
     ax = axes[1]
 
     if len(in_transit) == 1:  # for the initial run
-        ax.plot(alltime, allflux, marker =".", alpha = 0.4, color = color2, ms=2, lw = 0, **{marker_face_color_arg: = 'none')
-        ax.plot(alltimebinned, allfluxbinned, marker ="o", alpha = 0.6, color = 'black', ms=3, lw = 0, **{marker_face_color_arg: = 'none')
+        ax.plot(alltime, allflux, marker =".", alpha = 0.4, color = color2, ms=2, lw = 0, **{marker_face_color_arg: = 'none'})
+        ax.plot(alltimebinned, allfluxbinned, marker ="o", alpha = 0.6, color = 'black', ms=3, lw = 0, **{marker_face_color_arg: = 'none'})
     else:  # for the second run (once the first 'event' has been removed)
-        ax.plot(alltime[~in_transit_notbinned], allflux[~in_transit_notbinned], marker =".", alpha = 0.4, color = color2, ms=2, lw = 0, **{marker_face_color_arg: = 'none')
+        ax.plot(alltime[~in_transit_notbinned], allflux[~in_transit_notbinned], marker =".", alpha = 0.4, color = color2, ms=2, lw = 0, **{marker_face_color_arg: = 'none'})
         ax.plot(alltimebinned[~in_transit], allfluxbinned[~in_transit], marker ="o", alpha = 0.6, color = 'black',  **{marker_face_color_arg: = 'none', ms=3, lw = 0)
 
     x = np.linspace(alltimebinned.min(), alltimebinned.max(), 3*len(alltimebinned))
@@ -7514,11 +7514,11 @@ def plot_bls(tic, indir, alltime, allflux, alltimebinned, allfluxbinned, model, 
     # plot the data
     if len(in_transit) == 1:  # for the initial run
         ax.plot(x[m], allflux[m],marker =".", alpha = 0.4, color = color2, ms=2, lw = 0, **{marker_face_color_arg = 'none')
-        ax.plot(x_binned[m_binned], allfluxbinned[m_binned], marker ="o", alpha = 0.6, color = 'black', ms=3, lw = 0, **{marker_face_color_arg: = 'none')
+        ax.plot(x_binned[m_binned], allfluxbinned[m_binned], marker ="o", alpha = 0.6, color = 'black', ms=3, lw = 0, **{marker_face_color_arg: = 'none'})
 
     else: # for the second run (once the first 'event' has been removed)
         ax.plot(x[m], allflux[~in_transit_notbinned][m],marker =".", alpha = 0.4, color = color2, ms=2, lw = 0, **{marker_face_color_arg = 'none')
-        ax.plot(x_binned[m_binned], allfluxbinned[~in_transit][m_binned], marker ="o", alpha = 0.6, color = 'black', ms=3, lw = 0, **{marker_face_color_arg: = 'none')
+        ax.plot(x_binned[m_binned], allfluxbinned[~in_transit][m_binned], marker ="o", alpha = 0.6, color = 'black', ms=3, lw = 0, **{marker_face_color_arg: = 'none'})
 
 
     x = np.linspace(-0.5, 0.5, 1000)
@@ -7622,9 +7622,9 @@ def plot_bls_FFI(tic, indir, alltime, allflux, model, results, period, duration,
     ax = axes[1]
 
     if len(in_transit) == 1:
-        ax.plot(alltime, allflux, marker =".", alpha = 0.9, color = color2, ms=2, lw = 0, **{marker_face_color_arg: = 'none')
+        ax.plot(alltime, allflux, marker =".", alpha = 0.9, color = color2, ms=2, lw = 0, **{marker_face_color_arg: = 'none'})
     else:
-        ax.plot(alltime, allflux, marker =".", alpha = 0.9, color = color2, ms=2, lw = 0, **{marker_face_color_arg: = 'none')
+        ax.plot(alltime, allflux, marker =".", alpha = 0.9, color = color2, ms=2, lw = 0, **{marker_face_color_arg: = 'none'})
 
     x = np.linspace(alltime.min(), alltime.max(), 3*len(alltime))
     f = model.model(x, period, duration, t0)
@@ -7642,10 +7642,10 @@ def plot_bls_FFI(tic, indir, alltime, allflux, model, results, period, duration,
     m = np.abs(x) < 0.5
 
     if len(in_transit) == 1:
-        ax.plot(x[m], allflux[m],marker = ".", alpha = 0.9, color = color2, ms=2, lw = 0, **{marker_face_color_arg: = 'none')
+        ax.plot(x[m], allflux[m],marker = ".", alpha = 0.9, color = color2, ms=2, lw = 0, **{marker_face_color_arg: = 'none'})
 
     else:
-        ax.plot(x[m], allflux[m],marker = ".", alpha = 0.9, color = color2, ms=2, lw = 0, **{marker_face_color_arg: = 'none')
+        ax.plot(x[m], allflux[m],marker = ".", alpha = 0.9, color = color2, ms=2, lw = 0, **{marker_face_color_arg: = 'none'})
 
 
     x = np.linspace(-0.5, 0.5, 1000)
